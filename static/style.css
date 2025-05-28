@@ -1,0 +1,10 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
+    margin: 20px;
+}
+
+h1 {
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
