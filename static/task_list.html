@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Задачи</title>
+</head>
+<body>
+
+<h1>Список задач</h1>
+
+{% for task in tasks %}
+    <div>
+        <h2>{{ task.title }}</h2>
+        <p>{{ task.content }}</p>
+        <p>Приоритет: {{ task.priority }}</p>
+        <p>Дедлайн: {{ task.deadline }}</p>
+        <p>Завершено: {{ task.is_completed }}</p>
+    </div>
+{% empty %}
+    <p>Пока задач нет.</p>
+{% endfor %}
+
+</body>
+</html>
