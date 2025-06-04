@@ -13,10 +13,10 @@
 {% for task in tasks %}
     <div>
         <h2>{{ task.title }}</h2>
-        <p>{{ task.content }}</p>
+        <p>{{ task.description }}</p>
         <p>Приоритет: {{ task.priority }}</p>
         <p>Дедлайн: {{ task.deadline }}</p>
-        <p>Завершено: {{ task.is_completed }}</p>
+        <p>Завершено: {{ task.done }}</p>
     </div>
 {% empty %}
     <p>Пока задач нет.</p>
