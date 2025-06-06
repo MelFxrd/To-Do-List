@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>To Do List — Вход и Регистрация</title>
+</head>
+<body>
+    <h1>Вход и регистрация</h1>
+
+    <form method="post" style="margin-bottom: 20px;">
+        {% csrf_token %}
+        <h2>Вход</h2>
+
+        <label for="login_username">Имя пользователя:</label>
+        <input type="text" name="username" id="login_username" required />
+
+        <label for="login_password">Пароль:</label>
+        <input type="password" name="password" id="login_password" required />
+
+        <button type="submit" name="login">Войти</button>
+    </form>
+
+    <form method="post">
+        {% csrf_token %}
+        <h2>Регистрация</h2>
+
+        <label for="reg_username">Имя пользователя:</label>
+        <input type="text" name="username" id="reg_username" required />
+
+        <label for="reg_password">Пароль:</label>
+        <input type="password" name="password" id="reg_password" required />
+
+        <button type="submit" name="register">Зарегистрироваться</button>
+    </form>
+</body>
+</html>
+=
