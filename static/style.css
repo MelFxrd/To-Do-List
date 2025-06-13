@@ -42,3 +42,16 @@ input, select, textarea {
     border-bottom: 1px solid gray;
     padding: 8px 0;
 }
+.task-form {
+  margin-bottom: 30px;
+}
+
+.task-card {
+  border: solid black 1px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.delete-form {
+  margin-top: 10px;
+}

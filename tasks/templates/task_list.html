@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
     <title>Задачи</title>
-</head>
+  </head>
 <body>
+    <h1>Задачи</h1>
 
-<h1>Список задач</h1>
+    <form method="post" class="task-form">
+      {% csrf_token %}
+      <div>
+        <label>Название:</label>
+        <input type="text" name="title" required>
+      </div>
+      <div>
+        <label>Описание:</label>
+        <textarea name="description"></textarea>
+      </div>
+      <div>
+        <label>Приоритет:</label>
+        <input type="number" name="priority" value="1" min="1" max="5">
+      </div>
+      <div>
+        <label>Дедлайн:</label>
+        <input type="date" name="deadline">
+      </div>
+      <button type="submit" name="create_task">Добавить задачу</button>
+    </form>
 
-{% for task in tasks %}
-    <div>
-        <h2>{{ task.title }}</h2>
-        <p>{{ task.description }}</p>
-        <p>Приоритет: {{ task.priority }}</p>
-        <p>Дедлайн: {{ task.deadline }}</p>
-        <p>Завершено: {{ task.done }}</p>
-    </div>
-{% empty %}
-    <p>Пока задач нет.</p>
-{% endfor %}
+    {% if tasks %}
+      {% for task in tasks %}
+        <div class="task-card">
+          <div>Название: {{ task.title }}</div>
+          {% if task.description %}
+            <div>Описание: {{ task.description }}</div>
+          {% endif %}
+          <div>Приоритет: {{ task.priority }}</div>
+          {% if task.deadline %}
+            <div>Дедлайн: {{ task.deadline }}</div>
+          {% endif %}
 
+          <form method="post" class="delete-form">
+            {% csrf_token %}
+            <button type="submit" name="delete_task" value="{{ task.id }}">Удалить</button>
+          </form>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>Задач пока нет.</p>
+    {% endif %}
 </body>
 </html>
