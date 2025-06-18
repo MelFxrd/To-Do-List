@@ -55,3 +55,14 @@ input, select, textarea {
 .delete-form {
   margin-top: 10px;
 }
+
+.task-card div {
+  margin: 0;
+  padding: 0;
+}
+
+.task-card div p {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}

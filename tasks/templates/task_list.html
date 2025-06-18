@@ -38,7 +38,7 @@
             {% if task.is_completed %}(Завершено){% endif %}
           </div>
           {% if task.description %}
-            <div>Описание: {{ task.description }}</div>
+            <div>Описание: {{ task.description|safe }}</div>
           {% endif %}
           <div>Приоритет: {{ task.priority }}</div>
           {% if task.deadline %}
@@ -55,6 +55,7 @@
           <form method="post" class="delete-form">
             {% csrf_token %}
             <button type="submit" name="delete_task" value="{{ task.id }}">Удалить</button>
+            <a href="{% url 'edit_task' task.id %}">Редактировать</a>
           </form>
         </div>
       {% endfor %}
