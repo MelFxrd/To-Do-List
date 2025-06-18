@@ -3,31 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="stylesheet" href="/static/edit_task.css" />
   <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   <title>Редактировать задачу</title>
 </head>
 <body>
-  <h1>Редактировать задачу</h1>
+  <div class="edit-container">
+    <h1>Редактировать задачу</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label>Название:</label>
+      <input type="text" name="title" value="{{ task.title }}" required />
 
-  <form method="post">
-    {% csrf_token %}
-    <label>Название:</label>
-    <input type="text" name="title" value="{{ task.title }}" required />
+      <label>Описание:</label>
+      <textarea name="description" id="description">{{ task.description }}</textarea>
 
-    <label>Описание:</label>
-    <textarea name="description" id="description">{{ task.description }}</textarea>
+      <label>Приоритет:</label>
+      <input type="number" name="priority" value="{{ task.priority }}" min="1" max="5" />
 
-    <label>Приоритет:</label>
-    <input type="number" name="priority" value="{{ task.priority }}" min="1" max="5" />
+      <label>Дедлайн:</label>
+      <input type="date" name="deadline" value="{{ task.deadline|date:'Y-m-d' }}" />
 
-    <label>Дедлайн:</label>
-    <input type="date" name="deadline" value="{{ task.deadline|date:'Y-m-d' }}" />
-
-    <button type="submit">Сохранить</button>
-    <a href="{% url 'task_list' %}">Отмена</a>
-  </form>
-
+      <button type="submit">Сохранить</button>
+      <a href="{% url 'task_list' %}">Отмена</a>
+    </form>
+  </div>
+  <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   <script>
     ClassicEditor
       .create(document.querySelector('#description'))
