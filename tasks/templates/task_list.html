@@ -38,7 +38,7 @@
             {% if task.is_completed %}(Завершено){% endif %}
           </div>
           {% if task.description %}
-            <div>Описание: {{ task.description|safe }}</div>
+          <div class="description">Описание: {{ task.description|safe }}</div>
           {% endif %}
           <div>Приоритет: {{ task.priority }}</div>
           {% if task.deadline %}

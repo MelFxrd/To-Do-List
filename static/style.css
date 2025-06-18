@@ -1,9 +1,12 @@
 body {
-    background-color: white;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: white;
+  color: black;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -65,4 +68,64 @@ input, select, textarea {
   display: inline;
   margin: 0;
   padding: 0;
+}
+
+.auth-container {
+  display: flex;
+  gap: 40px;
+  border: 1px solid white;
+  padding: 30px 40px;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 0 12px rgb(0 0 0 / 0.05);
+  max-width: 700px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.auth-container form {
+  width: 50%;
+}
+
+.auth-container h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.auth-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="password"] {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  font-family: inherit;
+  color: black;
+  background: white;
+  box-sizing: border-box;
+}
+
+.auth-container button {
+  padding: 8px 14px;
+  border: 1px solid black;
+  background: transparent;
+  font-weight: 600;
+  border-radius: 3px;
+  font-family: inherit;
+  color: black;
+  width: 100%;
+  font-size: 16px;
+}
+
+.auth-container button:hover {
+  background: white;
 }
