@@ -1,5 +1,5 @@
 body {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: white;
   color: black;
   margin: 0;
@@ -9,75 +9,14 @@ body {
   align-items: center;
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-}
-
-header {
-    background-color: lightgray;
-    padding: 10px 20px;
-}
-
-nav a {
-    margin-right: 10px;
-    text-decoration: none;
-    color: black;
-}
-
-button {
-    background-color: blue;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-}
-
-input, select, textarea {
-    padding: 6px;
-    width: 100%;
-    margin-bottom: 10px;
-    border: 1px solid gray;
-}
-
-.task {
-    border-bottom: 1px solid gray;
-    padding: 8px 0;
-}
-.task-form {
-  margin-bottom: 30px;
-}
-
-.task-card {
-  border: solid black 1px;
-  padding: 10px;
-  margin-bottom: 15px;
-}
-
-.delete-form {
-  margin-top: 10px;
-}
-
-.task-card div {
-  margin: 0;
-  padding: 0;
-}
-
-.task-card div p {
-  display: inline;
-  margin: 0;
-  padding: 0;
-}
-
 .auth-container {
   display: flex;
   gap: 40px;
-  border: 1px solid white;
+  border: 1px solid lightgray;
   padding: 30px 40px;
   border-radius: 6px;
-  background: white;
-  box-shadow: 0 0 12px rgb(0 0 0 / 0.05);
+  background: ghostwhite;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
   max-width: 700px;
   width: 100%;
   box-sizing: border-box;
@@ -119,13 +58,15 @@ input, select, textarea {
   border: 1px solid black;
   background: transparent;
   font-weight: 600;
+  cursor: pointer;
   border-radius: 3px;
   font-family: inherit;
   color: black;
+  transition: background 0.15s ease;
   width: 100%;
   font-size: 16px;
 }
 
 .auth-container button:hover {
-  background: white;
+  background: lightgray;
 }

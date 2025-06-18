@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="stylesheet" href="/static/auth.css" />
   <title>To Do List — Вход и Регистрация</title>
 </head>
 <body>
   <div class="auth-container">
-    <form method="post" class="auth-form" novalidate>
+    <form method="post" novalidate>
       {% csrf_token %}
       <h2>Вход</h2>
 
@@ -21,7 +21,7 @@
       <button type="submit" name="login">Войти</button>
     </form>
 
-    <form method="post" class="auth-form" novalidate>
+    <form method="post" novalidate>
       {% csrf_token %}
       <h2>Регистрация</h2>
 
