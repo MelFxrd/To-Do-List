@@ -1,0 +1,115 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: white;
+  color: black;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasks-container {
+  display: flex;
+  gap: 40px;
+  border: 1px solid lightgray;
+  padding: 30px 40px;
+  border-radius: 6px;
+  background: ghostwhite;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.left-form,
+.right-tasks {
+  width: 50%;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  font-family: inherit;
+  color: black;
+  background: white;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 8px 14px;
+  border: 1px solid black;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: inherit;
+  color: black;
+  transition: background 0.15s ease;
+  font-size: 16px;
+}
+
+button:hover {
+  background: lightgray;
+}
+
+.task-card {
+  border: 1px solid silver;
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  background: white;
+}
+
+.task-card > div {
+  margin-bottom: 6px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.task-actions form {
+  display: inline;
+}
+
+.task-actions a {
+  padding: 8px 14px;
+  border: 1px solid black;
+  border-radius: 3px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.description-wrapper p {
+  display: inline;
+  margin: 0;
+}
+
+.description-wrapper {
+  margin-bottom: 4px;
+}
