@@ -15,8 +15,8 @@ body {
   border: 1px solid lightgray;
   padding: 30px 40px;
   border-radius: 6px;
-  background: ghostwhite;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  background: whitesmoke;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
   max-width: 700px;
   width: 100%;
   box-sizing: border-box;
@@ -29,44 +29,41 @@ body {
 .auth-container h2 {
   margin-top: 0;
   margin-bottom: 15px;
-  font-weight: 700;
-  font-size: 22px;
-}
-
-.auth-container label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
 }
 
 .auth-container input[type="text"],
 .auth-container input[type="password"] {
   width: 100%;
   padding: 6px 8px;
-  border: 1px solid gray;
-  border-radius: 3px;
-  font-size: 14px;
   margin-bottom: 12px;
-  font-family: inherit;
-  color: black;
-  background: white;
   box-sizing: border-box;
 }
 
 .auth-container button {
-  padding: 8px 14px;
-  border: 1px solid black;
-  background: transparent;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 3px;
-  font-family: inherit;
-  color: black;
-  transition: background 0.15s ease;
   width: 100%;
-  font-size: 16px;
+  padding: 8px 14px;
 }
 
-.auth-container button:hover {
-  background: lightgray;
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+body.dark {
+  background: #121212;
+  color: white;
+}
+
+body.dark .auth-container {
+  background: #1e1e1e;
+  border: 1px solid #333;
+}
+
+body.dark .auth-container button:hover {
+  background: #333;
+}
+
+body.dark .theme-toggle:hover {
+  background: darkgray;
 }
