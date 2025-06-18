@@ -10,7 +10,7 @@ def auth_register_login(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
-                return redirect("tasks:task_list")
+                return redirect("task_list")
 
         elif "register" in request.POST:
             username = request.POST.get("username")
@@ -20,6 +20,6 @@ def auth_register_login(request):
                 user = authenticate(request, username=username, password=password)
                 if user:
                     login(request, user)
-                    return redirect("tasks:task_list")
+                    return redirect("task_list")
 
     return render(request, "auth.html")

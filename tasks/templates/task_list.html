@@ -33,13 +33,23 @@
     {% if tasks %}
       {% for task in tasks %}
         <div class="task-card">
-          <div>Название: {{ task.title }}</div>
+          <div>
+            Название: {{ task.title }}
+            {% if task.is_completed %}(Завершено){% endif %}
+          </div>
           {% if task.description %}
             <div>Описание: {{ task.description }}</div>
           {% endif %}
           <div>Приоритет: {{ task.priority }}</div>
           {% if task.deadline %}
             <div>Дедлайн: {{ task.deadline }}</div>
+          {% endif %}
+
+          {% if not task.is_completed %}
+            <form method="post" class="complete-form">
+              {% csrf_token %}
+              <button type="submit" name="complete_task" value="{{ task.id }}">Завершить</button>
+            </form>
           {% endif %}
 
           <form method="post" class="delete-form">
