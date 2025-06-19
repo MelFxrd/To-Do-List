@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/task_list.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/task_list.css" />
   <title>Задачи</title>
 </head>
 <body>
   {% if user.is_authenticated %}
-  <form action="{% url 'logout' %}" method="post" class="logout-form">
-    {% csrf_token %}
-    <button type="submit" class="logout-button">Выйти</button>
-  </form>
+    <form action="{% url 'logout' %}" method="post" class="logout-form">
+      {% csrf_token %}
+      <button type="submit" class="logout-button">Выйти</button>
+    </form>
   {% endif %}
 
   <div class="tasks-container">
@@ -36,11 +36,11 @@
     </div>
 
     <div class="right-tasks">
-      <h2>Мои задачи</h2>
-      {% if tasks %}
-        {% for task in tasks %}
+      <h2>Активные задачи</h2>
+      {% for task in tasks %}
+        {% if not task.is_completed %}
           <div class="task-card">
-            <div>Название: {{ task.title }} {% if task.is_completed %}(Завершено){% endif %}</div>
+            <div>Название: {{ task.title }}</div>
             {% if task.description %}
               <div class="description-wrapper">Описание: {{ task.description|safe }}</div>
             {% endif %}
@@ -48,14 +48,11 @@
             {% if task.deadline %}
               <div>Дедлайн: {{ task.deadline }}</div>
             {% endif %}
-
             <div class="task-actions">
-              {% if not task.is_completed %}
               <form method="post">
                 {% csrf_token %}
                 <button type="submit" name="complete_task" value="{{ task.id }}">Завершить</button>
               </form>
-              {% endif %}
               <form method="post">
                 {% csrf_token %}
                 <button type="submit" name="delete_task" value="{{ task.id }}">Удалить</button>
@@ -63,10 +60,31 @@
               <a href="{% url 'edit_task' task.id %}">Редактировать</a>
             </div>
           </div>
-        {% endfor %}
-      {% else %}
-        <p>Задач пока нет.</p>
-      {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      <h2 style="margin-top: 30px;">Завершённые задачи</h2>
+      {% for task in tasks %}
+        {% if task.is_completed %}
+          <div class="task-card">
+            <div>Название: {{ task.title }} (Завершено)</div>
+            {% if task.description %}
+              <div class="description-wrapper">Описание: {{ task.description|safe }}</div>
+            {% endif %}
+            <div>Приоритет: {{ task.priority }}</div>
+            {% if task.deadline %}
+              <div>Дедлайн: {{ task.deadline }}</div>
+            {% endif %}
+            <div class="task-actions">
+              <form method="post">
+                {% csrf_token %}
+                <button type="submit" name="delete_task" value="{{ task.id }}">Удалить</button>
+              </form>
+              <a href="{% url 'edit_task' task.id %}">Редактировать</a>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 
