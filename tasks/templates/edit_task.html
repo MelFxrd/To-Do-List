@@ -8,8 +8,11 @@
   <title>Редактировать задачу</title>
 </head>
 <body>
+  <button class="theme-toggle" onclick="toggleTheme()">Сменить тему</button>
+
   <div class="edit-container">
     <h1>Редактировать задачу</h1>
+
     <form method="post">
       {% csrf_token %}
       <label>Название:</label>
@@ -28,13 +31,28 @@
       <a href="{% url 'task_list' %}">Отмена</a>
     </form>
   </div>
-  <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
   <script>
-    ClassicEditor
-      .create(document.querySelector('#description'))
-      .catch(error => {
-          console.error(error);
+    ClassicEditor.create(document.querySelector('#description')).then(editor => {
+      if (document.body.classList.contains('dark')) {
+        editor.editing.view.change(writer => {
+          writer.setStyle('background-color', 'rgb(45, 45, 45)', editor.editing.view.document.getRoot());
+          writer.setStyle('color', 'white', editor.editing.view.document.getRoot());
+        });
+      }
+
+      document.querySelector('.theme-toggle').addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+
+        editor.editing.view.change(writer => {
+          writer.setStyle('background-color', isDark ? 'rgb(45, 45, 45)' : 'white', editor.editing.view.document.getRoot());
+          writer.setStyle('color', isDark ? 'white' : 'black', editor.editing.view.document.getRoot());
+        });
       });
+    }).catch(error => {
+      console.error(error);
+    });
   </script>
 </body>
 </html>

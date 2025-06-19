@@ -3,71 +3,126 @@ body {
   background: white;
   color: black;
   margin: 0;
-  padding: 40px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  position: relative;
 }
 
 .edit-container {
   width: 100%;
   max-width: 600px;
-  background: ghostwhite;
-  border: 1px solid lightgray;
   padding: 30px 40px;
+  border: 1px solid lightgray;
   border-radius: 6px;
+  background: whitesmoke;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
 }
 
-h1 {
+.edit-container h1 {
   margin-top: 0;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-size: 24px;
   font-weight: 700;
-  text-align: center;
 }
 
-label {
+.edit-container label {
   display: block;
   margin-bottom: 6px;
   font-weight: 600;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="date"],
-textarea {
+.edit-container input[type="text"],
+.edit-container input[type="number"],
+.edit-container input[type="date"],
+.edit-container textarea {
   width: 100%;
   padding: 6px 8px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-family: inherit;
   border: 1px solid gray;
   border-radius: 3px;
-  font-size: 14px;
-  margin-bottom: 14px;
-  font-family: inherit;
-  color: black;
   background: white;
+  color: black;
   box-sizing: border-box;
 }
 
-button,
-a {
+.edit-container button,
+.edit-container a {
+  display: inline-block;
   padding: 8px 14px;
+  margin-right: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: inherit;
   border: 1px solid black;
   background: transparent;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 3px;
-  font-family: inherit;
   color: black;
+  border-radius: 4px;
   text-decoration: none;
-  font-size: 16px;
-  display: inline-block;
-  margin-right: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-button:hover,
-a:hover {
+.edit-container button:hover,
+.edit-container a:hover {
   background: lightgray;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  border: 1px solid black;
+  background: transparent;
+  color: black;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: lightgray;
+}
+
+body.dark {
+  background: black;
+  color: white;
+}
+
+body.dark .edit-container {
+  background: rgb(30, 30, 30);
+  border: 1px solid gray;
+}
+
+body.dark input[type="text"],
+body.dark input[type="number"],
+body.dark input[type="date"],
+body.dark textarea {
+  background-color: rgb(45, 45, 45);
+  color: white;
+  border: 1px solid gray;
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+  color: lightgray;
+}
+
+body.dark button,
+body.dark a,
+body.dark .theme-toggle {
+  border: 1px solid white;
+  color: white;
+}
+
+body.dark button:hover,
+body.dark a:hover,
+body.dark .theme-toggle:hover {
+  background: gray; 
 }
