@@ -7,6 +7,13 @@
   <title>Задачи</title>
 </head>
 <body>
+  {% if user.is_authenticated %}
+  <form action="{% url 'logout' %}" method="post" class="logout-form">
+    {% csrf_token %}
+    <button type="submit" class="logout-button">Выйти</button>
+  </form>
+  {% endif %}
+
   <div class="tasks-container">
     <div class="left-form">
       <h2>Создать задачу</h2>
@@ -33,15 +40,13 @@
       {% if tasks %}
         {% for task in tasks %}
           <div class="task-card">
-            <div><strong>Название:</strong> {{ task.title }} {% if task.is_completed %}(Завершено){% endif %}</div>
+            <div>Название: {{ task.title }} {% if task.is_completed %}(Завершено){% endif %}</div>
             {% if task.description %}
-              <div class="description-wrapper">
-                <strong>Описание:</strong> {{ task.description|safe }}
-              </div>
+              <div class="description-wrapper">Описание: {{ task.description|safe }}</div>
             {% endif %}
-            <div><strong>Приоритет:</strong> {{ task.priority }}</div>
+            <div>Приоритет: {{ task.priority }}</div>
             {% if task.deadline %}
-              <div><strong>Дедлайн:</strong> {{ task.deadline }}</div>
+              <div>Дедлайн: {{ task.deadline }}</div>
             {% endif %}
 
             <div class="task-actions">

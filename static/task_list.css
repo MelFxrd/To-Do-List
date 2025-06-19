@@ -175,3 +175,38 @@ body.dark .theme-toggle {
 body.dark .theme-toggle:hover {
   background: darkgray;
 }
+
+.logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 16px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background: transparent;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  color: black;
+}
+
+.logout-form {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  margin: 0;
+}
+
+.logout-button:hover {
+  background: lightgray;
+}
+
+body.dark .logout-button {
+  color: white;
+  border-color: white;
+}
+
+body.dark .logout-button:hover {
+  background: gray;
+}
