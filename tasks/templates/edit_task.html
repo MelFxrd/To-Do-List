@@ -10,6 +10,13 @@
 <body>
   <button class="theme-toggle" onclick="toggleTheme()">Сменить тему</button>
 
+  {% if user.is_authenticated %}
+  <form action="{% url 'logout' %}" method="post" class="logout-form">
+    {% csrf_token %}
+    <button type="submit" class="logout-button">Выйти</button>
+  </form>
+  {% endif %}
+
   <div class="edit-container">
     <h1>Редактировать задачу</h1>
 

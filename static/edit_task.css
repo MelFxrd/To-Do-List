@@ -90,6 +90,39 @@ body {
   background: lightgray;
 }
 
+.logout-form {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  margin: 0;
+}
+
+.logout-button {
+  padding: 8px 14px;
+  border: 1px solid black;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: inherit;
+  color: black;
+  transition: background 0.15s ease;
+  font-size: 16px;
+}
+
+body.dark .logout-button {
+  color: white;
+  border-color: white;
+}
+
+.logout-button:hover {
+  background: lightgray;
+}
+
+body.dark .logout-button:hover {
+  background: gray;
+}
+
 body.dark {
   background: black;
   color: white;
