@@ -113,3 +113,65 @@ button:hover {
 .description-wrapper {
   margin-bottom: 4px;
 }
+
+body.dark {
+  background: black;
+  color: white;
+}
+
+body.dark input,
+body.dark textarea {
+  background: black;
+  color: white;
+  border: 1px solid gray;
+}
+
+body.dark .task-card {
+  background: black;
+  border: 1px solid gray;
+}
+
+body.dark .task-actions a,
+body.dark button {
+  background: transparent;
+  color: white;
+  border: 1px solid gray;
+}
+
+body.dark .task-actions a:hover,
+body.dark button:hover {
+  background: darkgray;
+}
+
+body.dark .tasks-container {
+  background: #111;
+  border: 1px solid gray;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 14px;
+  font-size: 14px;
+  border: 1px solid black;
+  background: transparent;
+  color: black;
+  border-radius: 3px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+body.dark .theme-toggle {
+  color: white;
+  border-color: gray;
+}
+
+.theme-toggle:hover {
+  background: lightgray;
+}
+
+body.dark .theme-toggle:hover {
+  background: darkgray;
+}
